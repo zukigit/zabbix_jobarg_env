@@ -3,7 +3,7 @@ version: '3'
 services:
 
   zabbix_db:
-    image: oss:psql
+    image: zukidocker/oss:psql
     container_name: psql14
     ports:  
       - "5432:5432"
@@ -16,18 +16,18 @@ services:
       ports:  
         - "10051:10051"
       environment:
-        DB_SERVER_HOST: "192.168.50.95"
+        DB_SERVER_HOST: "192.168.219.221"
         MYSQL_USER: "zabbix"
         MYSQL_PASSWORD: "zabbix"
   
   zabbix_web_apache:
-    image: zabbix/zabbix-server-pgsql:alpine-6.0-latest
+    image: zabbix/zabbix-web-apache-pgsql:alpine-6.0-latest
     container_name: zabbix_web_apache
     ports:  
       - "80:8080"
     environment:
-      DB_SERVER_HOST: "192.168.50.95"
+      DB_SERVER_HOST: "192.168.219.221"
       MYSQL_USER: "zabbix"
       MYSQL_PASSWORD: "zabbix"
-      ZBX_SERVER_HOST: "192.168.50.95"
+      ZBX_SERVER_HOST: "192.168.219.221"
       PHP_TZ: "Asia/Yangon"
