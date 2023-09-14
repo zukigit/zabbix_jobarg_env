@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+
+  zabbix_db:
+    image: oss:psql
+    container_name: psql14
+    ports:  
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: zabbix
