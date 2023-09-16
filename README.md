@@ -1,1 +1,1 @@
-# this repo is for creating env in docker
+# this repo is for creating zabbi and db env in docker
