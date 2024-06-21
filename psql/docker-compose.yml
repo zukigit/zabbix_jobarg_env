@@ -1,5 +1,3 @@
-version: '3'
-
 services:
 
   zabbix_db:
@@ -16,7 +14,7 @@ services:
       ports:  
         - "10051:10051"
       environment:
-        DB_SERVER_HOST: "YOUR_IP"
+        DB_SERVER_HOST: "Your Ip"
         MYSQL_USER: "zabbix"
         MYSQL_PASSWORD: "zabbix"
   
@@ -26,8 +24,8 @@ services:
     ports:  
       - "8080:8080"
     environment:
-      DB_SERVER_HOST: "YOUR_IP"
+      DB_SERVER_HOST: "Your Ip"
       MYSQL_USER: "zabbix"
       MYSQL_PASSWORD: "zabbix"
-      ZBX_SERVER_HOST: "YOUR_IP"
+      ZBX_SERVER_HOST: "Your Ip"
       PHP_TZ: "Asia/Yangon"
