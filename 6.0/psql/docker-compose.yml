@@ -1,3 +1,5 @@
+version: '3'
+
 services:
 
   zabbix_db:
@@ -9,23 +11,23 @@ services:
       POSTGRES_PASSWORD: zabbix
 
   zabbix_server:
-      image: zabbix/zabbix-server-pgsql:7.0-alpine-latest
+      image: zabbix/zabbix-server-pgsql:alpine-6.0-latest
       container_name: zabbix_server_psql
       ports:  
         - "10051:10051"
       environment:
-        DB_SERVER_HOST: "Your Ip"
+        DB_SERVER_HOST: "10.0.2.15"
         MYSQL_USER: "zabbix"
         MYSQL_PASSWORD: "zabbix"
   
   zabbix_web_apache:
-    image: zabbix/zabbix-web-apache-pgsql:7.0-alpine-latest
+    image: zabbix/zabbix-web-apache-pgsql:alpine-6.0-latest
     container_name: zabbix_web_apache_psql
     ports:  
-      - "8080:8080"
+      - "80:8080"
     environment:
-      DB_SERVER_HOST: "Your Ip"
+      DB_SERVER_HOST: "10.0.2.15"
       MYSQL_USER: "zabbix"
       MYSQL_PASSWORD: "zabbix"
-      ZBX_SERVER_HOST: "Your Ip"
+      ZBX_SERVER_HOST: "10.0.2.15"
       PHP_TZ: "Asia/Yangon"

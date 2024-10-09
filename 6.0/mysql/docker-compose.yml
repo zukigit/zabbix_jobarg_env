@@ -1,3 +1,5 @@
+version: '3'
+
 services:
 
   zabbix_db:
@@ -9,25 +11,25 @@ services:
       MYSQL_ROOT_PASSWORD: zabbix
 
   zabbix_server:
-    image: zabbix/zabbix-server-mysql:7.0-alpine-latest
+    image: zabbix/zabbix-server-mysql:alpine-6.0-latest
     container_name: zabbix_server_mysql
     ports:  
       - "10051:10051"
     environment:
-      DB_SERVER_HOST: "YOUR_IP"
+      DB_SERVER_HOST: "192.168.50.95"
       MYSQL_USER: "zabbix"
       MYSQL_PASSWORD: "zabbix"
   
   zabbix_web_apache:
-    image: zabbix/zabbix-web-apache-mysql:7.0-alpine-latest
+    image: zabbix/zabbix-web-apache-mysql:alpine-6.0-latest
     container_name: zabbix_web_apache_mysql
     ports:  
       - "8080:8080"
     environment:
-      DB_SERVER_HOST: "YOUR_IP"
+      DB_SERVER_HOST: "192.168.50.95"
       MYSQL_USER: "zabbix"
       MYSQL_PASSWORD: "zabbix"
-      ZBX_SERVER_HOST: "YOUR_IP"
+      ZBX_SERVER_HOST: "192.168.50.95"
       PHP_TZ: "Asia/Yangon"
 
   
