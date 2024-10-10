@@ -3,7 +3,7 @@ version: '3'
 services:
 
   zabbix_db:
-    image: zukidocker/oss:zbx6db_mysql
+    image: zukidocker/oss:zbx6db_psql
     container_name: mysql8
     ports:  
       - "3306:3306"
@@ -16,7 +16,7 @@ services:
     ports:  
       - "10051:10051"
     environment:
-      DB_SERVER_HOST: "10.0.2.4"
+      DB_SERVER_HOST: "YOUR_HOST_IP"
       MYSQL_USER: "zabbix"
       MYSQL_PASSWORD: "zabbix"
   
@@ -26,10 +26,10 @@ services:
     ports:  
       - "8080:8080"
     environment:
-      DB_SERVER_HOST: "10.0.2.4"
+      DB_SERVER_HOST: "YOUR_HOST_IP"
       MYSQL_USER: "zabbix"
       MYSQL_PASSWORD: "zabbix"
-      ZBX_SERVER_HOST: "10.0.2.4"
+      ZBX_SERVER_HOST: "YOUR_HOST_IP"
       PHP_TZ: "Asia/Yangon"
 
   
