@@ -1,7 +1,7 @@
 services:
 
   zabbix_db:
-    image: zukidocker/oss:psql
+    image: zukidocker/oss:zbx6db_psql
     container_name: psql14
     ports:  
       - "5432:5432"
