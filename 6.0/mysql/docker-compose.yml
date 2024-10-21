@@ -3,7 +3,7 @@ version: '3'
 services:
 
   zabbix_db:
-    image: zukidocker/oss:zbx6db_psql
+    image: zukidocker/oss:zbx6db_mysql
     container_name: mysql8
     ports:  
       - "3306:3306"
