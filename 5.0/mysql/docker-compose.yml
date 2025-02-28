@@ -1,8 +1,8 @@
 services:
 
   zabbix_db:
-    image: zukidocker/oss:zbx5db
-    container_name: zbx5db_mysql8
+    image: zukidocker/oss:zbx5db_mysql
+    container_name: zbx5db
     ports:  
       - "3306:3306"
     environment:
