@@ -1,15 +1,15 @@
 services:
 
   zabbix_db:
-    image: zukidocker/oss:zbx6db_mysql
-    container_name: mysql8
+    image: zukidocker/oss:zbx5db_mysql
+    container_name: zbx5db_mysql8
     ports:  
       - "3306:3306"
     environment:
       MYSQL_ROOT_PASSWORD: zabbix
 
   zabbix_server:
-    image: zabbix/zabbix-server-mysql:alpine-6.0-latest
+    image: zabbix/zabbix-server-mysql:5.0-alpine-latest
     container_name: zabbix_server_mysql
     ports:  
       - "10051:10051"
@@ -19,7 +19,7 @@ services:
       MYSQL_PASSWORD: "zabbix"
   
   zabbix_web_apache:
-    image: zabbix/zabbix-web-apache-mysql:alpine-6.0-latest
+    image: zabbix/zabbix-web-apache-mysql:5.0-alpine-latest
     container_name: zabbix_web_apache_mysql
     ports:  
       - "8080:8080"
