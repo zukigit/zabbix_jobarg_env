@@ -1,10 +1,13 @@
 services:
 
   zabbix_db:
-    image: zukidocker/oss:zbx5db_psql
+    image: zukidocker/oss:zbx5db
     container_name: zbx5db_psql14
     ports:  
       - "5432:5432"
+    command: ["postgres", "-c", "config_file=/etc/postgresql.conf"]
+    volumes:
+      - ./pg_confs/postgresql.conf:/etc/postgresql.conf
     environment:
       POSTGRES_PASSWORD: zabbix
 
