@@ -1,6 +1,4 @@
-# Procedure
-
-## Steps to Set Up Zabbix 5.0
+# Steps to Set Up Zabbix 5.0
 
 1. **Navigate to the desired database folder (`mysql` or `psql`).**
 2. **Start the containers:**
